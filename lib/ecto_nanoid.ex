@@ -36,19 +36,9 @@ defmodule Ecto.Nanoid do
   def dump(value) when is_binary(value), do: {:ok, value}
   def dump(_), do: :error
 
-  def autogenerate do
-    case Application.get_env(:ecto_identifier, :nanoid) do
-      %{size: size, alphabet: alphabet} ->
-        Nanoid.generate(size, alphabet)
-
-      %{alphabet: alphabet} ->
-        Nanoid.generate(21, alphabet)
-
-      %{size: size} ->
-        Nanoid.generate(size)
-
-      _ ->
-        Nanoid.generate()
-    end
-  end
+  @doc """
+  Delegates generation of the field to `Nanoid.generate/0`.
+  """
+  @spec autogenerate() :: String.t()
+  def autogenerate, do: Nanoid.generate()
 end

@@ -65,7 +65,7 @@ defmodule EctoIdentifier.MixProject do
 
   defp docs do
     [
-      extras: ["README.md", "LICENSE", "CHANGELOG.md"],
+      extras: ["README.md", "CHANGELOG.md"],
       main: "readme",
       source_ref: "v#{@version}"
     ]
