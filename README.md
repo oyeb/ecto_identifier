@@ -63,7 +63,31 @@ to be of _a custom `Ecto.Type`_, ala `Ecto.Nanoid`.
 
 #### Can I use this as my primary key?
 
-Well of course! _An example is coming soon!_
+Well of course! Example:
+
+``` elixir
+@primary_key {:id, :string, autogenerate: {Ecto.Nanoid, :autogenerate, []}}
+schema "users" do
+field :email, :string
+field :name, :string
+
+timestamps()
+end
+
+```
+
+``` elixir
+def change do
+create table(:users, primary_key: false) do
+add :email, :string
+add :id, :string, primary_key: true
+add :name, :string
+
+timestamps()
+end
+
+end
+```
 
 ## Ecto.Hashids
 
