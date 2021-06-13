@@ -24,7 +24,7 @@ defmodule Ecto.Nanoid do
   ```
   """
 
-  @behaviour Ecto.Type
+  use Ecto.Type
 
   def type, do: :string
 
@@ -38,6 +38,9 @@ defmodule Ecto.Nanoid do
 
   @doc """
   Delegates generation of the field to `Nanoid.generate/0`.
+
+  To change the default nanoid size and alphabet, use `config.exs` as indicated
+  [here](https://hexdocs.pm/nanoid/readme.html#configuration).
   """
   @spec autogenerate() :: String.t()
   def autogenerate, do: Nanoid.generate()
