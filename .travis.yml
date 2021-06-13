@@ -17,7 +17,6 @@ script:
 after_script:
   - bash <(curl -s https://codecov.io/bash)
   - bash .scripts/inch_report.sh
-  - bash echo ::OTP [$TRAVIS_OTP_RELEASE]
 
 matrix:
   include:
