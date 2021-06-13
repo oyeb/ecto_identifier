@@ -35,7 +35,7 @@ defmodule Ecto.NanoidTest do
     test "'number' generated at insertion" do
       post = TestRepo.insert!(%PostWithNanoid{})
       refute is_nil(post.id)
-      assert post.number =~ ~r/[~_A-Za-z0-9]{21}/
+      assert post.number =~ ~r/[-_A-Za-z0-9]{21}/
     end
 
     test "'number' not generated if provided in changeset/struct/map/keyword" do
