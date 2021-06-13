@@ -28,19 +28,3 @@ use Mix.Config
 # here (which is why it is important to import them last).
 
 import_config "#{Mix.env()}.exs"
-
-config :git_hooks,
-  verbose: true,
-  hooks: [
-    pre_commit: [
-      mix_tasks: [
-        "format --check-formatted"
-      ]
-    ],
-    post_commit: [
-      verbose: true,
-      mix_tasks: [
-        "credo --strict"
-      ]
-    ]
-  ]
